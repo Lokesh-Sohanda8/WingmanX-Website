@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.DS_Store
+*.local
+.env
+.env.*
+data/submissions.json
+backup_v2/
+backup_brands_restore_point/
+backup_ecosystem_redesign_restore_point/
+backup_footer_fix_restore_point/
+backup_oem_restore_point/
+backup_patch_v2_restore_point/
+backup_restore_point_oneshot/
+backup_team_fix_restore_point/
+wing-env/

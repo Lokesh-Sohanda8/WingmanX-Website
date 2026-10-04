@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  
+  <title>WingmanX — Don't Just Plan The Ride. Live It.</title>
+  <meta name="description" content="WingmanX is the premier connected rider platform connecting motorcycle riders, communities, brands, and OEM partners across India. Real-time pack beacons, crash alerts, and ride discovery.">
+  <meta name="keywords" content="motorcycle app, group riding, rider community, bike rides, Pune riders, motorcycle telematics, WingmanX, riding companion">
+  <meta name="author" content="WingmanX Mobility Labs Pvt. Ltd.">
+  <meta name="theme-color" content="#060709">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wingmanx.in/">
+  <meta property="og:title" content="WingmanX — Don't Just Plan The Ride. Live It.">
+  <meta property="og:description" content="Immersive rider-first platform connecting motorcyclists with like-minded riders, live pack tracking, and motorcycle brand rewards.">
+  <meta property="og:image" content="/images/hero_poster.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://wingmanx.in/">
+  <meta property="twitter:title" content="WingmanX — Don't Just Plan The Ride. Live It.">
+  <meta property="twitter:description" content="Immersive rider-first platform connecting motorcyclists with like-minded riders, live pack tracking, and motorcycle brand rewards.">
+  <meta property="twitter:image" content="/images/hero_poster.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <!-- Google Fonts Preconnect & Stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap">
+
+  <!-- FontAwesome 6 (CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Core Design System CSS -->
+  <link rel="stylesheet" href="/css/main.css?v=7">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "WingmanX Mobility Labs Pvt. Ltd.",
+    "url": "https://wingmanx.in",
+    "logo": "https://wingmanx.in/images/WingmanX_logo.png",
+    "slogan": "Don't Just Plan The Ride. Live It.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pune",
+      "addressRegion": "Maharashtra",
+      "postalCode": "411045",
+      "addressCountry": "IN"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-97637-06633",
+      "contactType": "Customer Support",
+      "email": "support@wingmanx.in"
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- =========================================================================
+       8-SECOND CINEMATIC WingmanX ROAD JOURNEY LOADING EXPERIENCE
+       "Let’s start our journey, make it count, and live the ride."
+       ========================================================================= -->
+  <div id="wingmanx-loader" class="wingmanx-cinematic-loader" role="status" aria-live="polite" aria-label="Launching WingmanX Journey...">
+    <!-- Fullscreen 3D Perspective Road & Night Atmosphere Canvas -->
+    <canvas id="loader-road-canvas" class="loader-road-canvas"></canvas>
+
+    <!-- Overlay Vignette & Horizon Amber Flare -->
+    <div class="loader-vignette-scrim"></div>
+    <div class="loader-horizon-glow" id="loaderHorizonGlow"></div>
+
+    <!-- HUD Telemetry & Journey Interface -->
+    <div class="loader-hud-overlay">
+      <!-- Top Status Header -->
+      <div class="loader-hud-top">
+        <div class="hud-telemetry-badge">
+          <span class="tele-dot"></span>
+          <span class="tele-label" id="loaderGpsStatus">GPS ACTIVE &bull; SAHYADRI HIGHWAY RADAR</span>
+        </div>
+        <button id="loader-skip-btn" class="loader-skip-btn" aria-label="Skip to website">
+          <span>SKIP JOURNEY</span>
+          <kbd>ESC</kbd>
+        </button>
+      </div>
+
+      <!-- Center Brand & Emotional Statement (Emerges from the Road at ~4.5s) -->
+      <div class="loader-center-brand-wrap" id="loaderCenterBrand">
+        <div class="loader-brand-aura" id="loaderBrandAura"></div>
+        <div class="loader-emblem-box">
+          <img src="/images/logo_new.png" alt="WingmanX" class="loader-brand-logo">
+        </div>
+        <div class="loader-journey-statement-wrap">
+          <h2 class="loader-journey-headline">
+            LET’S START OUR JOURNEY.<br>
+            <span class="highlight-orange">MAKE IT COUNT.</span> LIVE THE RIDE.
+          </h2>
+          <p class="loader-journey-tagline">
+            INDIA’S PREMIER CONNECTED MOTORCYCLING COMMUNITY
+          </p>
+        </div>
+      </div>
+
+      <!-- Bottom Cockpit Gauges & Acceleration Telemetry -->
+      <div class="loader-hud-bottom">
+        <div class="hud-gauge-pod left-pod">
+          <span class="hud-pod-title">VELOCITY</span>
+          <div class="hud-pod-val"><span id="loaderSpeedVal">000</span> <small>KM/H</small></div>
+          <div class="hud-pod-bar"><div class="hud-pod-fill" id="loaderSpeedBar"></div></div>
+        </div>
+
+        <div class="hud-center-timeline">
+          <div class="hud-timeline-label" id="loaderTimelineStage">IGNITION &bull; THE NIGHT IS OPEN</div>
+          <div class="hud-timeline-track">
+            <div class="hud-timeline-progress" id="loaderTimelineProgress"></div>
+          </div>
+          <div class="hud-timeline-waypoints">
+            <span class="wp-node" id="wp01">IGNITION</span>
+            <span class="wp-node" id="wp02">ROAD SPEED</span>
+            <span class="wp-node" id="wp03">WingmanX</span>
+            <span class="wp-node" id="wp04">FULL THROTTLE</span>
+          </div>
+        </div>
+
+        <div class="hud-gauge-pod right-pod">
+          <span class="hud-pod-title">TRANSMISSION</span>
+          <div class="hud-pod-val"><span id="loaderGearVal">N</span> <small>GEAR</small></div>
+          <div class="hud-pod-bar"><div class="hud-pod-fill" id="loaderGearBar"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       GLOBAL SITE HEADER & NAVIGATION
+       ========================================================================= -->
+  <header class="site-header" id="main-header">
+    <div class="container nav-container">
+      <!-- WingmanX Official Brand Logo -->
+      <a href="/" class="site-logo" data-internal-route aria-label="WingmanX Home">
+        <img src="/images/logo_new.png" alt="WingmanX Official Logo">
+      </a>
+
+      <!-- Desktop Primary Navigation -->
+      <nav class="nav-menu-wrapper" aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="/about-us" class="nav-link" data-internal-route>ABOUT US</a>
+          </li>
+          <li class="nav-item">
+            <a href="/wingmanx-ecosystem" class="nav-link" data-internal-route>OUR ECOSYSTEM</a>
+          </li>
+          <li class="nav-item">
+            <a href="/brands-sponsors" class="nav-link" data-internal-route>BRANDS & SPONSORS</a>
+          </li>
+          <li class="nav-item">
+            <a href="/oem-partners" class="nav-link" data-internal-route>OEM PARTNERS</a>
+          </li>
+          <!-- RESOURCES MEGA-DROPDOWN -->
+          <li class="nav-item has-dropdown">
+            <button class="nav-link dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+              <span>RESOURCES</span>
+              <i class="fa-solid fa-chevron-down arrow"></i>
+            </button>
+            <div class="dropdown-menu">
+              <div class="dropdown-inner">
+                <a href="/blogs" class="dropdown-link" data-internal-route>
+                  <div class="dd-icon"><i class="fa-solid fa-newspaper"></i></div>
+                  <div class="dd-info">
+                    <strong>RIDER JOURNAL / BLOGS</strong>
+                    <span>Touring advice & maintenance guides</span>
+                  </div>
+                </a>
+                <a href="/our-testimonials" class="dropdown-link" data-internal-route>
+                  <div class="dd-icon"><i class="fa-solid fa-quote-left"></i></div>
+                  <div class="dd-info">
+                    <strong>OUR TESTIMONIALS</strong>
+                    <span>Stories from verified community riders</span>
+                  </div>
+                </a>
+                <a href="/our-galleries" class="dropdown-link" data-internal-route>
+                  <div class="dd-icon"><i class="fa-solid fa-images"></i></div>
+                  <div class="dd-info">
+                    <strong>OUR GALLERIES</strong>
+                    <span>Visual archive across Indian roads</span>
+                  </div>
+                </a>
+                <a href="/awards" class="dropdown-link" data-internal-route>
+                  <div class="dd-icon"><i class="fa-solid fa-trophy"></i></div>
+                  <div class="dd-info">
+                    <strong>AWARDS & RECOGNITION</strong>
+                    <span>Mobility innovation honors</span>
+                  </div>
+                </a>
+                <a href="/community-contributors" class="dropdown-link" data-internal-route>
+                  <div class="dd-icon"><i class="fa-solid fa-users"></i></div>
+                  <div class="dd-info">
+                    <strong>COMMUNITY CONTRIBUTORS</strong>
+                    <span>The riders who helped build the road</span>
+                  </div>
+                </a>
+                <a href="/careers" class="dropdown-link" data-internal-route>
+                  <div class="dd-icon"><i class="fa-solid fa-briefcase"></i></div>
+                  <div class="dd-info">
+                    <strong>CAREERS</strong>
+                    <span>Join the WingmanX engineering crew</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="/contact-us" class="nav-link" data-internal-route>CONTACT US</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Header CTA & Mobile Hamburger -->
+      <div class="header-cta-group">
+        <a href="/#app-download" class="btn btn-primary btn-sm d-none-mobile" data-internal-route>
+          <i class="fa-solid fa-mobile-screen"></i>
+          <span>GET THE APP</span>
+        </a>
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="mobile-drawer">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       MOBILE NAVIGATION DRAWER
+       ========================================================================= -->
+  <div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Mobile Navigation Menu">
+    <div class="drawer-header">
+      <img src="/images/logo_new.png" alt="WingmanX Logo" class="drawer-logo">
+      <button class="drawer-close" id="drawer-close-btn" aria-label="Close Navigation Menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="drawer-body">
+      <ul class="drawer-menu">
+        <li class="drawer-item"><a href="/" class="drawer-link" data-internal-route>HOME</a></li>
+        <li class="drawer-item"><a href="/about-us" class="drawer-link" data-internal-route>ABOUT US</a></li>
+        <li class="drawer-item"><a href="/wingmanx-ecosystem" class="drawer-link" data-internal-route>OUR ECOSYSTEM</a></li>
+        <li class="drawer-item"><a href="/brands-sponsors" class="drawer-link" data-internal-route>BRANDS & SPONSORS</a></li>
+        <li class="drawer-item"><a href="/oem-partners" class="drawer-link" data-internal-route>OEM PARTNERS</a></li>
+        <li class="drawer-item has-accordion">
+          <button class="drawer-link drawer-dropdown-toggle" aria-expanded="false" aria-controls="drawer-resources-menu">
+            <span>RESOURCES</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <ul class="drawer-submenu" id="drawer-resources-menu">
+            <li><a href="/blogs" class="drawer-sublink" data-internal-route>Blogs & Guides</a></li>
+            <li><a href="/our-testimonials" class="drawer-sublink" data-internal-route>Our Testimonials</a></li>
+            <li><a href="/our-galleries" class="drawer-sublink" data-internal-route>Our Galleries</a></li>
+            <li><a href="/awards" class="drawer-sublink" data-internal-route>Awards & Recognition</a></li>
+            <li><a href="/community-contributors" class="drawer-sublink" data-internal-route>Community Contributors</a></li>
+            <li><a href="/careers" class="drawer-sublink" data-internal-route>Careers</a></li>
+          </ul>
+        </li>
+        <li class="drawer-item"><a href="/contact-us" class="drawer-link" data-internal-route>CONTACT US</a></li>
+      </ul>
+
+      <div class="drawer-footer">
+        <a href="/#app-download" class="btn btn-primary w-100" data-internal-route>
+          <i class="fa-solid fa-download"></i> DOWNLOAD WingmanX
+        </a>
+        <div class="drawer-meta mt-3">
+          <p><i class="fa-solid fa-envelope"></i> support@wingmanx.in</p>
+          <p><i class="fa-solid fa-phone"></i> +91 97637 06633</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       DYNAMIC APP VIEW (MANAGED BY SPA ROUTER)
+       ========================================================================= -->
+  <main id="app-view" role="main">
+    <!-- Templates injected dynamically by router.js -->
+  </main>
+
+  <!-- =========================================================================
+       GLOBAL SITE FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="footer-telemetry-strip">
+      <div class="container strip-inner">
+        <span><i class="fa-solid fa-circle-dot text-orange"></i> HQ: PUNE, MAHARASHTRA</span>
+        <span>LAT: 18.5204° N • LONG: 73.8567° E</span>
+        <span>COMMUNITY: 14,800+ RIDERS</span>
+        <span>ROAD NETWORK: 385,000+ KM</span>
+      </div>
+    </div>
+
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <!-- Brand Info -->
+        <div class="footer-col brand-col">
+          <a href="/" class="footer-logo" data-internal-route>
+            <img src="/images/WingmanX_logo.png" alt="WingmanX Logo">
+          </a>
+          <p class="footer-tagline">“DON'T JUST PLAN THE RIDE. LIVE IT.”</p>
+          <p class="footer-desc">
+            WingmanX is India's dedicated motorcycle companion platform connecting riders, communities, brands, and vehicle manufacturers into an integrated adventure network.
+          </p>
+          <div class="footer-contact-items">
+            <p><i class="fa-solid fa-location-dot"></i> Pune, Maharashtra 411045, India</p>
+            <p><i class="fa-solid fa-envelope"></i> <a href="mailto:support@wingmanx.in">support@wingmanx.in</a></p>
+            <p><i class="fa-solid fa-phone"></i> <a href="tel:+919763706633">+91 97637 06633</a></p>
+          </div>
+          <div class="footer-social-links">
+            <a href="https://www.facebook.com/wingmanx7/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="WingManX on Facebook" title="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/wingmanx7/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="WingManX on Instagram" title="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/wingmanx-adventure-technologies-pvt-ltd/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="WingManX on LinkedIn" title="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://youtube.com/@wingmanxcommunity" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="WingManX on YouTube" title="YouTube">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Explore -->
+        <div class="footer-col">
+          <h4 class="footer-heading">EXPLORE</h4>
+          <ul class="footer-links">
+            <li><a href="/" data-internal-route>Home</a></li>
+            <li><a href="/about-us" data-internal-route>About Us</a></li>
+            <li><a href="/wingmanx-ecosystem" data-internal-route>Our Ecosystem</a></li>
+            <li><a href="/our-galleries" data-internal-route>Our Galleries</a></li>
+            <li><a href="/blogs" data-internal-route>Rider Journal & Blogs</a></li>
+            <li><a href="/our-testimonials" data-internal-route>Rider Testimonials</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Partnerships & Squad -->
+        <div class="footer-col">
+          <h4 class="footer-heading">PARTNERSHIPS</h4>
+          <ul class="footer-links">
+            <li><a href="/brands-sponsors" data-internal-route>Brands & Sponsors</a></li>
+            <li><a href="/oem-partners" data-internal-route>OEM Partners</a></li>
+            <li><a href="/community-contributors" data-internal-route>Community Contributors</a></li>
+            <li><a href="/awards" data-internal-route>Awards & Milestones</a></li>
+            <li><a href="/careers" data-internal-route>Careers</a></li>
+            <li><a href="/contact-us" data-internal-route>Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Dispatch Newsletter -->
+        <div class="footer-col newsletter-col">
+          <h4 class="footer-heading">THE RIDER DISPATCH</h4>
+          <p class="small text-muted mb-3">Subscribe to our weekly dispatch: curated weekend ride routes, gear reviews, and safety updates directly from Pune HQ.</p>
+          <form id="footer-newsletter-form" class="footer-form">
+            <div class="newsletter-input-group">
+              <input type="email" id="footer-email-input" name="email" required placeholder="Enter your email address" aria-label="Email address for dispatch">
+              <button type="submit" class="btn btn-primary btn-sm" aria-label="Subscribe to dispatch">
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+            <div class="newsletter-feedback" id="newsletter-status"></div>
+          </form>
+
+          <div class="store-links-mini mt-4">
+            <a href="https://play.google.com/store/apps/details?id=com.wingmanx.mobile" target="_blank" rel="noopener noreferrer" aria-label="Download WingmanX from Google Play">
+              <img src="/images/google-play.svg" alt="Google Play" height="34">
+            </a>
+            <a href="https://apps.apple.com/in/app/wingmanx/id6479581088" target="_blank" rel="noopener noreferrer" aria-label="Download WingmanX from the Apple App Store">
+              <img src="/images/app-store.jpg" alt="Apple App Store" height="34">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Giant Brand Watermark -->
+      <div class="watermark-logo">WingManX</div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          © 2026 WingmanX Mobility Labs Pvt. Ltd. All Rights Reserved.
+        </div>
+        <div class="footer-legal-links">
+          <a href="/privacy-policy" data-internal-route>Privacy Policy</a>
+          <span>•</span>
+          <a href="/terms-of-service" data-internal-route>Terms of Service</a>
+          <span>•</span>
+          <a href="/cancellation-refund-policy" data-internal-route>Cancellation & Refund</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       LIGHTBOX MODAL FOR HIGH-RES PHOTOS
+       ========================================================================= -->
+  <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Photo Lightbox">
+    <button class="lightbox-close" id="lightbox-close-btn" aria-label="Close Photo Lightbox">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev-btn" aria-label="Previous Photo">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="High resolution preview">
+      <video id="lightbox-video" controls playsinline style="display:none; max-width:90vw; max-height:80vh; border-radius:12px; outline:none; background:#000; box-shadow:0 20px 50px rgba(0,0,0,0.85);"></video>
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next-btn" aria-label="Next Photo">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+  </div>
+
+  <!-- Application Logic & Scripts -->
+  <script src="/js/pages.js?v=7"></script>
+  <script src="/js/road-motion.js?v=7"></script>
+  <script src="/js/network-radar.js?v=7"></script>
+  <script src="/js/router.js?v=7"></script>
+  <script src="/js/app.js?v=7"></script>
+</body>
+</html>
