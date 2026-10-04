@@ -1,0 +1,144 @@
+[
+  {
+    "id": "WMX-REC-MUPI82PC",
+    "type": "enquiry",
+    "name": "Vikram",
+    "email": "vikram@wingmanx.in",
+    "phone": null,
+    "subject": "General Rider Support",
+    "message": "Hello from Pune test rider",
+    "clientIp": "::1",
+    "timestamp": "2026-10-01T12:22:24.432Z"
+  },
+  {
+    "id": "WMX-REC-MUPIUP8X",
+    "type": "enquiry",
+    "name": "Test Hardening Rider",
+    "email": "rider_1790858400082@wingmanx-test.in",
+    "phone": "+91 99999 88888",
+    "subject": "Hardening Verification Run",
+    "message": "Automated test submission verifying local persistence.",
+    "clientIp": "::1",
+    "timestamp": "2026-10-01T12:40:00.081Z"
+  },
+  {
+    "id": "WMX-REC-MUPIUP8Y",
+    "type": "brand-partnership",
+    "company": "WingmanX Tested Gear Co",
+    "name": "Test Partner Lead",
+    "email": "brand_1790858400082@partner.org",
+    "interest": "Milestone Gear Rewards",
+    "message": "Testing brand persistence.",
+    "clientIp": "::1",
+    "timestamp": "2026-10-01T12:40:00.082Z"
+  },
+  {
+    "id": "WMX-REC-MUPIUP8Z",
+    "type": "oem-integration",
+    "company": "Test Motorrad OEM",
+    "name": "Systems Architect",
+    "email": "oem_1790858400082@factory.com",
+    "department": "Telematics R&D",
+    "message": "Cluster integration test.",
+    "clientIp": "::1",
+    "timestamp": "2026-10-01T12:40:00.083Z"
+  },
+  {
+    "id": "WMX-REC-MUPIUP91",
+    "type": "newsletter",
+    "email": "subscriber_1790858400082@pack.in",
+    "clientIp": "::1",
+    "timestamp": "2026-10-01T12:40:00.085Z"
+  },
+  {
+    "id": "WMX-REC-MUPIVG4Q",
+    "type": "enquiry",
+    "name": "Test Hardening Rider",
+    "email": "rider_1790858434922@wingmanx-test.in",
+    "phone": "+91 99999 88888",
+    "subject": "Hardening Verification Run",
+    "message": "Automated test submission verifying local persistence.",
+    "clientIp": "::1",
+    "timestamp": "2026-10-01T12:40:34.922Z"
+  },
+  {
+    "id": "WMX-REC-MUPIVG4R",
+    "type": "brand-partnership",
+    "company": "WingmanX Tested Gear Co",
+    "name": "Test Partner Lead",
+    "email": "brand_1790858434922@partner.org",
+    "interest": "Milestone Gear Rewards",
+    "message": "Testing brand persistence.",
+    "clientIp": "::1",
+    "timestamp": "2026-10-01T12:40:34.923Z"
+  },
+  {
+    "id": "WMX-REC-MUPIVG4S",
+    "type": "oem-integration",
+    "company": "Test Motorrad OEM",
+    "name": "Systems Architect",
+    "email": "oem_1790858434922@factory.com",
+    "department": "Telematics R&D",
+    "message": "Cluster integration test.",
+    "clientIp": "::1",
+    "timestamp": "2026-10-01T12:40:34.924Z"
+  },
+  {
+    "id": "WMX-REC-MUPIVG4U",
+    "type": "newsletter",
+    "email": "subscriber_1790858434922@pack.in",
+    "clientIp": "::1",
+    "timestamp": "2026-10-01T12:40:34.925Z"
+  },
+  {
+    "id": "WMX-REC-MUPJ9JQB",
+    "type": "enquiry",
+    "name": "Vikramaditya Deshmukh",
+    "email": "vikram.rider@wingmanx-browser-test.in",
+    "phone": "+91 97637 06633",
+    "subject": "Host a Community Ride",
+    "message": "Live automated browser test submission verifying end-to-end form hardening.",
+    "clientIp": "::1",
+    "timestamp": "2026-10-01T12:51:32.771Z"
+  },
+  {
+    "id": "WMX-REC-MUPJ9KTI",
+    "type": "newsletter",
+    "email": "browser.auditor@wingmanx-test.in",
+    "clientIp": "::1",
+    "timestamp": "2026-10-01T12:51:34.182Z"
+  },
+  {
+    "id": "WMX-REC-MUPJEQPN",
+    "type": "enquiry",
+    "name": "Aarav Patel",
+    "email": "aarav.release.qa@wingmanx.in",
+    "phone": "+91 98765 11223",
+    "subject": "General Rider Support",
+    "message": "Verified release gate message testing final production compliance.",
+    "clientIp": "::1",
+    "timestamp": "2026-10-01T12:55:35.099Z"
+  },
+  {
+    "id": "WMX-REC-MUPJHHEY",
+    "type": "enquiry",
+    "name": "Aarav Patel",
+    "email": "aarav.release.qa@wingmanx.in",
+    "phone": "+91 98765 11223",
+    "subject": "General Rider Support",
+    "message": "Verified release gate message testing final production compliance.",
+    "clientIp": "::1",
+    "timestamp": "2026-10-01T12:57:43.018Z"
+  },
+  {
+    "id": "WMX-REC-MUPJI9VD",
+    "type": "enquiry",
+    "name": "Aarav Patel",
+    "email": "aarav.release.qa@wingmanx.in",
+    "phone": "+91 98765 11223",
+    "subject": "General Rider Support",
+    "message": "Verified release gate message testing final production compliance.",
+    "clientIp": "::1",
+    "timestamp": "2026-10-01T12:58:19.897Z"
+  }
+]
