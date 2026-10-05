@@ -5633,13 +5633,13 @@ about: () => `
             <!-- Left: Headquarters Intel -->
             <div class="hq-intel-col glass-card">
               <div class="telemetry-tag mb-4"><i class="fa-solid fa-satellite"></i> PUNE HQ TELEMETRY</div>
-              <h2 class="hq-name">WingmanX MOBILITY LABS</h2>
+              <h2 class="hq-name">WingManX Adventure Technologies Pvt. Ltd.</h2>
               
               <div class="hq-info-block">
                 <div class="hq-icon"><i class="fa-solid fa-location-dot"></i></div>
                 <div class="hq-text">
                   <strong>HEADQUARTERS COORDINATES</strong>
-                  <p>WingmanX Mobility Labs Pvt. Ltd.<br>Pune, Maharashtra 411045, India</p>
+                  <p>WingManX Adventure Technologies Pvt. Ltd.<br>Pune, Maharashtra 411045, India</p>
                 </div>
               </div>
 
